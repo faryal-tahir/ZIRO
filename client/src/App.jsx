@@ -1,11 +1,12 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 import AuthPage from './pages/AuthPage'
 import HomePage from './pages/HomePage'
 import BuilderPage from './pages/BuilderPage'
 import PreviewPage from './pages/PreviewPage'
 import {AuthLayout, GuestLayout} from './pages/Layout'
+import { AlarmClockOffIcon } from 'lucide-react'
 const App = () => {
   return (
     <Routes>
@@ -21,7 +22,11 @@ const App = () => {
      <Route path='/builder/:id' element= { <BuilderPage /> } />   
      <Route path='/preview/:id' element= {<PreviewPage />} />
       </Route>
+       // Catch All
+    <Route path='*' element= {<Navigate to="/"  replace />}/>
     </Routes>
+
+   
   )
 }
 
